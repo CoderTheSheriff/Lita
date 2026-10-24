@@ -1,0 +1,70 @@
+name: Feature Request
+description: Suggest a new feature, enhancement, or linguistic update for Lita
+title: "[Feature]: "
+labels: ["enhancement", "proposal"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ### Linguistic & Project Feature Request
+        Use this template to propose improvements, new vocabulary, grammatical adjustments, or project enhancements for Lita.
+
+  - type: input
+    id: summary
+    attributes:
+      label: Summary
+      description: Briefly summarize the proposal or enhancement you’d like to see added.
+      placeholder: "Example: Propose a new root word for 'sustainability' or update pluralization rules"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: proposal-type
+    attributes:
+      label: Proposal Type
+      description: What area of the Lita language or project does this primarily affect?
+      options:
+        - Vocabulary / New Words (Lexicon)
+        - Grammar & Syntax (Rules)
+        - Orthography & Phonology (Writing/Sound systems)
+        - Documentation & Learning Materials
+        - Community Infrastructure (Website, tools, dictionary app)
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: motivation
+    attributes:
+      label: Motivation & Rationale
+      description: Explain why this feature is useful, necessary, or important for an auxiliary language. What communication gap does it fill?
+      placeholder: "Describe how this aligns with Lita's core goals (e.g., simplicity, neutrality, ease of learning)..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposed-solution
+    attributes:
+      label: Proposed Specification
+      description: Describe the implementation details. If proposing words, include etymology/roots. If grammar, provide example sentences.
+      placeholder: "Provide concrete examples, rules, or translation comparisons here..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives Considered
+      description: Did you consider other roots, existing words, or grammatical structures? Explain why your proposal is preferred.
+      placeholder: "Alternative words or structures that were evaluated..."
+    validations:
+      required: false
+
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: Additional Context
+      description: Include links to linguistic references, cross-language comparisons, or prior community discussions.
+      placeholder: "Any extra context or related information..."
+    validations:
+      required: false
