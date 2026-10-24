@@ -1,0 +1,85 @@
+name: Bug Report
+description: Report a font asset, rendering, or orthography bug in the Lita auxlang assets
+title: "[Bug]: "
+labels: ["bug", "font"]
+assignees: []
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting a bug or rendering issue for **Lita**.
+        Please fill out the following details to help us fix the font files (.ttf/.sfd) or typographic assets.
+
+  - type: dropdown
+    id: asset_format
+    attributes:
+      label: Asset Format
+      description: Select the file format where the bug occurs.
+      options:
+        - TTF (.ttf - TrueType Font)
+        - SFD (.sfd - FontForge Spline Font Database)
+        - Both / General Typography
+        - Documentation / Keyboard Layout
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Description of the Issue
+      description: A clear and concise description of the font rendering, mapping, or typographic bug.
+      placeholder: e.g., Ligatures are broken, specific glyphs overlap at small point sizes, character mappings are wrong...
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to Reproduce
+      description: What steps can we take or what specific text can we type to see the issue?
+      placeholder: |
+        1. Open the Lita .ttf file in FontForge or a browser.
+        2. Type the string: "..."
+        3. Observe that the character/accent renders incorrectly...
+    validations:
+      required: true
+
+  - type: input
+    id: environment
+    attributes:
+      label: Software / Environment
+      description: Specify the text editor, web browser, or layout engine where the rendering glitch happens.
+      placeholder: e.g., LibreOffice, Chrome v120, XeLaTeX, FontForge build 20240101
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected Behavior
+      description: How should the Lita text or glyph look?
+      placeholder: Describe the correct metric, baseline, alignment, or character shape expected.
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual Behavior
+      description: What is happening instead?
+      placeholder: Describe the actual clipping, missing glyph (tofu), spacing anomaly, etc.
+
+  - type: dropdown
+    id: os
+    attributes:
+      label: Operating System
+      options:
+        - Windows
+        - Linux
+        - macOS
+        - Android
+        - iOS
+        - Other
+
+  - type: textarea
+    id: additional
+    attributes:
+      label: Additional Context
+      description: Any other information, screenshots, sample text strings, or design references that might help.
