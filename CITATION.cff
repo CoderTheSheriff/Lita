@@ -1,0 +1,35 @@
+cff-version: 1.2.0
+title: "Lita: An Auxiliary Language and FLCS Font"
+message: "If you use the Lita language specification, or lexicon in your work, please cite it using the metadata from this file."
+type: software
+
+authors:
+  - alias: "CoderTheSheriff"
+    email: "karuman2013@gmail.com"
+    given-names: "Kartik"
+    family-names: "Pawar"
+
+repository-code: "https://github.com/CoderTheSheriff/Lita"
+
+abstract: >-
+  Lita is an auxiliary language (auxlang) designed to be comfortable to speak,
+  fluid to write, and intuitive to learn. It features a strict Consonant-Vowel (CV)
+  phonotactic structure, an ultra-compressed core lexicon of 50 baseline roots
+  (plus form particles) expanded through radical compounding, a simplified SVO
+  grammar free of morphological inflections, and an original native Fluid
+  Logographic Cursive Script (FLCS).
+
+keywords:
+  - auxlang
+  - constructed-language
+  - conlang
+  - linguistics
+  - logographic-script
+  - cursive-script
+  - font-software
+  - typography
+  - oligosynthetic-language
+
+license: OFL-1.1
+version: "1.0.0"
+date-released: "2026-10-24"
