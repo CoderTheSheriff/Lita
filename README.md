@@ -240,4 +240,4 @@ This font software is released under the **SIL Open Font License, Version 1.1**,
 
 [issue-badge]: https://img.shields.io/badge/Report%20a%20bug-red?style=for-the-badge&logo=github
 [features-badge]: https://img.shields.io/badge/Feature%20request-blue?style=for-the-badge&logo=github
-[license-badge]: https://img.shields.io/badge/license-SIL%20OSL-success?style=for-the-badge
+[license-badge]: https://img.shields.io/badge/license-SIL%20OFL-success?style=for-the-badge
