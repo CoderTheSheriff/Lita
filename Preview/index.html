@@ -1,0 +1,1022 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="black">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lita Specimen</title>
+<style>
+:root {
+  --bg: #ffffff;
+  --bg-panel: #f6f6f8;
+  --bg-control: #ececef;
+  --bg-active: #111113;
+  --fg: #111113;
+  --fg-active: #ffffff;
+  --fg-muted: #71717a;
+  --border: #e4e4e7;
+  --border-hover: #a1a1aa;
+  --guide-base: #ef4444;
+  --guide-max: #3b82f6;
+  --guide-box: #10b981;
+  --ui-font: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --ui-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  --conlang-font: "Lita";
+}
+
+[data-theme="dark"] {
+  --bg: #111114;
+  --bg-panel: #18181c;
+  --bg-control: #222228;
+  --bg-active: #f4f4f6;
+  --fg: #f4f4f6;
+  --fg-active: #111114;
+  --fg-muted: #8e8e99;
+  --border: #27272e;
+  --border-hover: #52525e;
+  --guide-base: #f87171;
+  --guide-max: #60a5fa;
+  --guide-box: #34d399;
+}
+
+[data-theme="black"] {
+  --bg: #000000;
+  --bg-panel: #08080a;
+  --bg-control: #121216;
+  --bg-active: #ffffff;
+  --fg: #f4f4f6;
+  --fg-active: #000000;
+  --fg-muted: #71717a;
+  --border: #1b1b20;
+  --border-hover: #3f3f46;
+  --guide-base: #ff5555;
+  --guide-max: #4da6ff;
+  --guide-box: #2dd4bf;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+*::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--ui-font);
+  font-size: 13px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  -webkit-font-smoothing: antialiased;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+header {
+  height: 50px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+  background: var(--bg);
+  flex-shrink: 0;
+}
+
+.bar-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.title {
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: -0.02em;
+  padding-right: 6px;
+}
+
+.segmented {
+  display: inline-flex;
+  background: var(--bg-panel);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 2px;
+  gap: 2px;
+}
+
+.seg-btn {
+  font-family: var(--ui-font);
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--fg-muted);
+  background: transparent;
+  border: none;
+  padding: 4px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.12s ease, color 0.12s ease;
+}
+
+.seg-btn:hover {
+  color: var(--fg);
+}
+
+.seg-btn.active {
+  background: var(--bg-active);
+  color: var(--fg-active);
+}
+
+input[type="text"] {
+  font-family: var(--ui-font);
+  font-size: 12px;
+  color: var(--fg);
+  background: var(--bg-control);
+  border: 1px solid var(--border);
+  padding: 6px 10px;
+  border-radius: 5px;
+  outline: none;
+  width: 100%;
+  transition: border-color 0.12s ease;
+}
+
+input[type="text"]:focus {
+  border-color: var(--border-hover);
+}
+
+main {
+  flex: 1;
+  display: flex;
+  overflow: hidden;
+}
+
+.sidebar {
+  width: 264px;
+  border-right: 1px solid var(--border);
+  background: var(--bg-panel);
+  padding: 16px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  flex-shrink: 0;
+}
+
+.control-block {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.control-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--fg-muted);
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.control-val {
+  font-family: var(--ui-mono);
+  color: var(--fg);
+  font-size: 11px;
+}
+
+.mini-btn {
+  font-family: var(--ui-font);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--fg-muted);
+  background: var(--bg-control);
+  border: 1px solid var(--border);
+  padding: 2px 6px;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: color 0.12s ease, border-color 0.12s ease;
+}
+
+.mini-btn:hover {
+  color: var(--fg);
+  border-color: var(--border-hover);
+}
+
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 4px;
+  background: var(--border);
+  border-radius: 2px;
+  outline: none;
+  cursor: pointer;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--fg);
+  border: 2px solid var(--bg-panel);
+  cursor: pointer;
+  transition: transform 0.1s ease;
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+  transform: scale(1.15);
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--fg);
+  border: 2px solid var(--bg-panel);
+  cursor: pointer;
+  transition: transform 0.1s ease;
+}
+
+.toggle-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+}
+
+.toggle-pill {
+  font-family: var(--ui-font);
+  font-size: 12px;
+  color: var(--fg-muted);
+  background: var(--bg-control);
+  border: 1px solid var(--border);
+  padding: 6px 0;
+  border-radius: 5px;
+  text-align: center;
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.12s ease;
+}
+
+.toggle-pill:hover {
+  color: var(--fg);
+  border-color: var(--border-hover);
+}
+
+.toggle-pill.active {
+  background: var(--bg-active);
+  color: var(--fg-active);
+  border-color: var(--bg-active);
+}
+
+.workspace {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: var(--bg);
+}
+
+.view-pane {
+  display: none;
+  flex: 1;
+  overflow: auto;
+}
+
+.view-pane.active {
+  display: flex;
+  flex-direction: column;
+}
+
+.conlang-render {
+  font-family: var(--conlang-font);
+  font-kerning: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: geometricPrecision;
+}
+
+.inspector-stage {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  padding: 40px;
+  cursor: grab;
+}
+
+.inspector-stage:active {
+  cursor: grabbing;
+}
+
+.glyph-box {
+  position: relative;
+  display: inline-flex;
+  align-items: baseline;
+  justify-content: center;
+  line-height: 1;
+  white-space: pre;
+  user-select: none;
+  will-change: transform;
+}
+
+.glyph-box.outline-mode {
+  color: transparent;
+  -webkit-text-stroke: 1.5px var(--fg);
+}
+
+.ink-bounds {
+  position: absolute;
+  pointer-events: none;
+  border: 1px dashed var(--guide-box);
+  display: none;
+}
+
+.bounds-on .ink-bounds {
+  display: block;
+}
+
+.metric-line {
+  position: absolute;
+  left: -100vw;
+  right: -100vw;
+  height: 1px;
+  pointer-events: none;
+  display: none;
+}
+
+.metric-line::after {
+  content: attr(data-label);
+  position: absolute;
+  left: 50%;
+  transform: translateX(-180px);
+  font-family: var(--ui-mono);
+  font-size: 10px;
+  letter-spacing: 0.05em;
+  padding: 1px 4px;
+  border-radius: 3px;
+  background: var(--bg-panel);
+  border: 1px solid var(--border);
+}
+
+.guides-on .metric-line {
+  display: block;
+}
+
+.line-max {
+  background: var(--guide-max);
+}
+
+.line-max::after {
+  color: var(--guide-max);
+  bottom: 4px;
+}
+
+.line-base {
+  background: var(--guide-base);
+}
+
+.line-base::after {
+  color: var(--guide-base);
+  top: 4px;
+}
+
+.inspector-bar {
+  height: 54px;
+  border-top: 1px solid var(--border);
+  padding: 0 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--bg-panel);
+  gap: 16px;
+}
+
+.char-strip {
+  display: flex;
+  gap: 5px;
+  overflow-x: auto;
+  flex: 1;
+  padding: 4px 0;
+  scroll-behavior: smooth;
+}
+
+.char-pill {
+  min-width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--fg);
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: var(--ui-mono);
+  font-size: 12px;
+  flex-shrink: 0;
+  transition: transform 0.1s ease, border-color 0.12s ease, background-color 0.12s ease;
+}
+
+.char-pill:hover {
+  border-color: var(--border-hover);
+  transform: translateY(-1px);
+}
+
+.char-pill.active {
+  background: var(--bg-active);
+  color: var(--fg-active);
+  border-color: var(--bg-active);
+}
+
+.meta-readout {
+  font-family: var(--ui-mono);
+  font-size: 12px;
+  color: var(--fg-muted);
+  white-space: nowrap;
+}
+
+.grid-container {
+  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: 8px;
+}
+
+.grid-cell {
+  background: var(--bg-panel);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  aspect-ratio: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  cursor: pointer;
+  position: relative;
+  transition: border-color 0.12s ease, transform 0.12s ease, background-color 0.12s ease;
+}
+
+.grid-cell:hover {
+  border-color: var(--border-hover);
+  background: var(--bg-control);
+  transform: translateY(-2px);
+}
+
+.grid-glyph {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  font-size: 48px;
+  width: 100%;
+  overflow: hidden;
+}
+
+.grid-meta {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--ui-mono);
+  font-size: 10px;
+  color: var(--fg-muted);
+}
+
+.tester-area {
+  flex: 1;
+  width: 100%;
+  border: none;
+  background: transparent;
+  color: var(--fg);
+  padding: 32px;
+  font-size: 48px;
+  line-height: 1.3;
+  resize: none;
+  outline: none;
+}
+
+.waterfall-list {
+  padding: 24px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.waterfall-row {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 12px;
+  overflow: hidden;
+}
+
+.waterfall-size {
+  font-family: var(--ui-mono);
+  font-size: 11px;
+  color: var(--fg-muted);
+  width: 48px;
+  flex-shrink: 0;
+}
+
+.waterfall-text {
+  white-space: nowrap;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid var(--border);
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="bar-group">
+    <span class="title">Lita</span>
+    <div class="segmented">
+      <button class="seg-btn tab-btn active" data-view="inspector">Inspector</button>
+      <button class="seg-btn tab-btn" data-view="grid">Glyph Grid</button>
+      <button class="seg-btn tab-btn" data-view="tester">Type Tester</button>
+      <button class="seg-btn tab-btn" data-view="waterfall">Waterfall</button>
+    </div>
+  </div>
+  <div class="bar-group">
+    <div class="segmented" id="themeGroup">
+      <button class="seg-btn" data-theme-val="light">Light</button>
+      <button class="seg-btn" data-theme-val="dark">Dark</button>
+      <button class="seg-btn active" data-theme-val="black">Black</button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <aside class="sidebar">
+    <div class="control-block">
+      <div class="control-header">
+        <span>Inspector Scale</span>
+        <span class="control-val" id="scaleVal">320px</span>
+      </div>
+      <input type="range" id="scaleSlider" min="48" max="720" value="320">
+    </div>
+
+    <div class="control-block">
+      <div class="control-header">
+        <span>Inspector Input</span>
+      </div>
+      <input type="text" id="inspectInput" value="A" maxlength="12">
+    </div>
+
+    <div class="control-block">
+      <div class="control-header">
+        <span>Display Options</span>
+      </div>
+      <div class="toggle-row">
+        <button class="toggle-pill active" id="guidesToggle">Metrics</button>
+        <button class="toggle-pill active" id="boundsToggle">Bounds</button>
+        <button class="toggle-pill" id="outlineToggle">Outline</button>
+      </div>
+    </div>
+
+    <div class="control-block">
+      <div class="control-header">
+        <span>Metric Lines</span>
+        <button class="mini-btn" id="snapMetricsBtn">Snap to Glyph</button>
+      </div>
+      <div class="control-header">
+        <span>Max Height</span>
+        <span class="control-val" id="maxVal">0px</span>
+      </div>
+      <input type="range" id="maxSlider" min="0" max="100" step="0.2" value="20">
+      <div class="control-header">
+        <span>Base</span>
+        <span class="control-val" id="baseVal">0px</span>
+      </div>
+      <input type="range" id="baseSlider" min="0" max="100" step="0.2" value="80">
+    </div>
+
+    <hr>
+
+    <div class="control-block">
+      <div class="control-header">
+        <span>Letter Spacing</span>
+        <span class="control-val" id="lsVal">0em</span>
+      </div>
+      <input type="range" id="lsSlider" min="-0.2" max="0.5" step="0.01" value="0">
+    </div>
+
+    <hr>
+
+    <div class="control-block">
+      <div class="control-header">
+        <span>Character Set</span>
+      </div>
+      <input type="text" id="charsetInput" value="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789.,!?:;-_()'&quot;/\@#$%^&*+=<>[]{|}~">
+    </div>
+  </aside>
+
+  <section class="workspace">
+    <div class="view-pane active" id="view-inspector">
+      <div class="inspector-stage guides-on" id="inspectorStage">
+        <div class="glyph-box conlang-render bounds-on" id="glyphBox" style="font-size: 320px;">
+          <div class="metric-line line-max" id="lineMax" data-label="MAX"></div>
+          <div class="metric-line line-base" id="lineBase" data-label="BASE"></div>
+          <div class="ink-bounds" id="inkBounds"></div>
+          <span id="glyphTarget">A</span><span id="baselineProbe" style="display:inline-block;width:0;height:0;vertical-align:baseline;"></span>
+        </div>
+      </div>
+      <div class="inspector-bar">
+        <div class="char-strip" id="charStrip"></div>
+        <div class="meta-readout" id="metaReadout">U+0041 | Dec: 65</div>
+      </div>
+    </div>
+
+    <div class="view-pane" id="view-grid">
+      <div class="grid-container" id="gridContainer"></div>
+    </div>
+
+    <div class="view-pane" id="view-tester">
+      <textarea class="tester-area conlang-render" id="testerArea" spellcheck="false">The quick brown fox jumps over the lazy dog.
+0123456789 !@#$%^&*()_+-=[]{};':",./<>?</textarea>
+    </div>
+
+    <div class="view-pane" id="view-waterfall">
+      <div class="waterfall-list" id="waterfallList"></div>
+    </div>
+  </section>
+</main>
+
+<script>
+const measureCanvas = document.createElement('canvas');
+const measureCtx = measureCanvas.getContext('2d');
+
+const state = {
+  char: 'A',
+  charset: document.getElementById('charsetInput').value,
+  autoSnapMetrics: true,
+  panX: 0,
+  panY: 0,
+  isDragging: false,
+  dragStartX: 0,
+  dragStartY: 0,
+  waterfallSizes: [12, 14, 16, 18, 24, 32, 48, 64, 96, 128, 160]
+};
+
+const els = {
+  tabs: document.querySelectorAll('.tab-btn'),
+  panes: document.querySelectorAll('.view-pane'),
+  themeBtns: document.querySelectorAll('#themeGroup .seg-btn'),
+  scaleSlider: document.getElementById('scaleSlider'),
+  scaleVal: document.getElementById('scaleVal'),
+  inspectInput: document.getElementById('inspectInput'),
+  guidesToggle: document.getElementById('guidesToggle'),
+  boundsToggle: document.getElementById('boundsToggle'),
+  outlineToggle: document.getElementById('outlineToggle'),
+  snapMetricsBtn: document.getElementById('snapMetricsBtn'),
+  maxSlider: document.getElementById('maxSlider'),
+  maxVal: document.getElementById('maxVal'),
+  baseSlider: document.getElementById('baseSlider'),
+  baseVal: document.getElementById('baseVal'),
+  lineMax: document.getElementById('lineMax'),
+  lineBase: document.getElementById('lineBase'),
+  inkBounds: document.getElementById('inkBounds'),
+  baselineProbe: document.getElementById('baselineProbe'),
+  lsSlider: document.getElementById('lsSlider'),
+  lsVal: document.getElementById('lsVal'),
+  charsetInput: document.getElementById('charsetInput'),
+  inspectorStage: document.getElementById('inspectorStage'),
+  glyphBox: document.getElementById('glyphBox'),
+  glyphTarget: document.getElementById('glyphTarget'),
+  charStrip: document.getElementById('charStrip'),
+  metaReadout: document.getElementById('metaReadout'),
+  gridContainer: document.getElementById('gridContainer'),
+  testerArea: document.getElementById('testerArea'),
+  waterfallList: document.getElementById('waterfallList')
+};
+
+function formatCodepoints(str, widthPx, heightPx) {
+  if (!str) return 'Empty';
+  const points = Array.from(str).map(c => {
+    const code = c.codePointAt(0);
+    return 'U+' + code.toString(16).toUpperCase().padStart(4, '0');
+  });
+  const decs = Array.from(str).map(c => c.codePointAt(0));
+  const dims = (widthPx !== undefined && heightPx !== undefined) ? ` | ${Math.round(widthPx)} × ${Math.round(heightPx)} px` : '';
+  return points.join(' ') + ' | Dec: ' + decs.join(', ') + dims;
+}
+
+function measureAndAlignGlyph() {
+  const str = state.char;
+  const boxRect = els.glyphBox.getBoundingClientRect();
+  const probeRect = els.baselineProbe.getBoundingClientRect();
+  const boxHeight = boxRect.height || 1;
+
+  if (!str || boxRect.height === 0) {
+    els.inkBounds.style.display = 'none';
+    els.metaReadout.textContent = formatCodepoints(str);
+    return;
+  }
+
+  const fontSize = parseFloat(els.scaleSlider.value);
+  measureCtx.font = `${fontSize}px "Lita", system-ui, sans-serif`;
+  measureCtx.textBaseline = 'alphabetic';
+  const m = measureCtx.measureText(str);
+
+  const baselineY = probeRect.top - boxRect.top;
+  const peakY = baselineY - m.actualBoundingBoxAscent;
+  const bottomY = baselineY + m.actualBoundingBoxDescent;
+
+  const glyphWidth = m.actualBoundingBoxLeft + m.actualBoundingBoxRight;
+  const glyphHeight = m.actualBoundingBoxAscent + m.actualBoundingBoxDescent;
+
+  const targetRect = els.glyphTarget.getBoundingClientRect();
+  const targetLeft = targetRect.left - boxRect.left;
+  const inkLeft = targetLeft - m.actualBoundingBoxLeft;
+
+  els.inkBounds.style.display = '';
+  els.inkBounds.style.top = `${peakY}px`;
+  els.inkBounds.style.height = `${Math.max(0, bottomY - peakY)}px`;
+  els.inkBounds.style.left = `${inkLeft}px`;
+  els.inkBounds.style.width = `${Math.max(0, glyphWidth)}px`;
+
+  if (state.autoSnapMetrics) {
+    const maxPct = Math.max(0, Math.min(100, (peakY / boxHeight) * 100));
+    const basePct = Math.max(0, Math.min(100, (bottomY / boxHeight) * 100));
+
+    els.lineMax.style.top = `${peakY - 1}px`;
+    els.lineBase.style.top = `${bottomY}px`;
+
+    els.maxSlider.value = maxPct.toFixed(1);
+    els.baseSlider.value = basePct.toFixed(1);
+    els.maxVal.textContent = `${Math.round(glyphHeight)}px`;
+    els.baseVal.textContent = `0px`;
+  }
+
+  els.metaReadout.textContent = formatCodepoints(str, glyphWidth, glyphHeight);
+}
+
+function setInspectChar(str) {
+  state.char = str;
+  els.inspectInput.value = str;
+  els.glyphTarget.textContent = str;
+  document.querySelectorAll('.char-pill').forEach(pill => {
+    const isMatch = pill.dataset.char === str;
+    pill.classList.toggle('active', isMatch);
+    if (isMatch) {
+      pill.scrollIntoView({ block: 'nearest', inline: 'nearest' });
+    }
+  });
+  measureAndAlignGlyph();
+}
+
+function renderCharStrip() {
+  els.charStrip.innerHTML = '';
+  const chars = Array.from(state.charset);
+  chars.forEach(c => {
+    const pill = document.createElement('button');
+    pill.className = 'char-pill' + (c === state.char ? ' active' : '');
+    pill.textContent = c;
+    pill.dataset.char = c;
+    pill.addEventListener('click', () => setInspectChar(c));
+    els.charStrip.appendChild(pill);
+  });
+}
+
+function renderGrid() {
+  els.gridContainer.innerHTML = '';
+
+  Array.from(state.charset).forEach(c => {
+    const cell = document.createElement('div');
+    cell.className = 'grid-cell';
+    const glyph = document.createElement('div');
+    glyph.className = 'grid-glyph conlang-render';
+    glyph.textContent = c;
+
+    const meta = document.createElement('div');
+    meta.className = 'grid-meta';
+    const keySpan = document.createElement('span');
+    keySpan.textContent = c;
+    const hexSpan = document.createElement('span');
+    hexSpan.textContent = c.codePointAt(0).toString(16).toUpperCase().padStart(4, '0');
+
+    meta.appendChild(keySpan);
+    meta.appendChild(hexSpan);
+    cell.appendChild(glyph);
+    cell.appendChild(meta);
+
+    cell.addEventListener('click', () => {
+      setInspectChar(c);
+      switchView('inspector');
+    });
+
+    els.gridContainer.appendChild(cell);
+  });
+}
+
+function renderWaterfall() {
+  els.waterfallList.innerHTML = '';
+  const sample = els.testerArea.value.split('\n')[0] || state.charset;
+  const ls = els.lsSlider.value + 'em';
+
+  state.waterfallSizes.forEach(sz => {
+    const row = document.createElement('div');
+    row.className = 'waterfall-row';
+
+    const label = document.createElement('div');
+    label.className = 'waterfall-size';
+    label.textContent = sz + 'px';
+
+    const text = document.createElement('div');
+    text.className = 'waterfall-text conlang-render';
+    text.style.fontSize = sz + 'px';
+    text.style.letterSpacing = ls;
+    text.textContent = sample;
+
+    row.appendChild(label);
+    row.appendChild(text);
+    els.waterfallList.appendChild(row);
+  });
+}
+
+function updateTypographyStyles() {
+  const ls = els.lsSlider.value + 'em';
+
+  els.glyphBox.style.letterSpacing = ls;
+  els.testerArea.style.letterSpacing = ls;
+
+  measureAndAlignGlyph();
+  renderGrid();
+  renderWaterfall();
+}
+
+function switchView(viewName) {
+  els.tabs.forEach(t => t.classList.toggle('active', t.dataset.view === viewName));
+  els.panes.forEach(p => p.classList.toggle('active', p.id === 'view-' + viewName));
+  if (viewName === 'inspector') {
+    requestAnimationFrame(measureAndAlignGlyph);
+  }
+}
+
+function applyStageTransform() {
+  els.glyphBox.style.transform = `translate(${state.panX}px, ${state.panY}px)`;
+}
+
+els.tabs.forEach(tab => {
+  tab.addEventListener('click', () => switchView(tab.dataset.view));
+});
+
+els.scaleSlider.addEventListener('input', e => {
+  const val = e.target.value + 'px';
+  els.scaleVal.textContent = val;
+  els.glyphBox.style.fontSize = val;
+  measureAndAlignGlyph();
+});
+
+els.inspectInput.addEventListener('input', e => {
+  setInspectChar(e.target.value);
+});
+
+els.guidesToggle.addEventListener('click', () => {
+  els.guidesToggle.classList.toggle('active');
+  els.inspectorStage.classList.toggle('guides-on', els.guidesToggle.classList.contains('active'));
+});
+
+els.boundsToggle.addEventListener('click', () => {
+  els.boundsToggle.classList.toggle('active');
+  els.glyphBox.classList.toggle('bounds-on', els.boundsToggle.classList.contains('active'));
+});
+
+els.outlineToggle.addEventListener('click', () => {
+  els.outlineToggle.classList.toggle('active');
+  els.glyphBox.classList.toggle('outline-mode', els.outlineToggle.classList.contains('active'));
+});
+
+els.snapMetricsBtn.addEventListener('click', () => {
+  state.autoSnapMetrics = true;
+  state.panX = 0;
+  state.panY = 0;
+  applyStageTransform();
+  measureAndAlignGlyph();
+});
+
+els.maxSlider.addEventListener('input', e => {
+  state.autoSnapMetrics = false;
+  const pct = parseFloat(e.target.value);
+  const boxHeight = els.glyphBox.getBoundingClientRect().height || 1;
+  const pxY = (pct / 100) * boxHeight;
+  const basePxY = (parseFloat(els.baseSlider.value) / 100) * boxHeight;
+  els.lineMax.style.top = `${pxY}px`;
+  els.maxVal.textContent = `${Math.round(basePxY - pxY)}px`;
+});
+
+els.baseSlider.addEventListener('input', e => {
+  state.autoSnapMetrics = false;
+  const pct = parseFloat(e.target.value);
+  const boxHeight = els.glyphBox.getBoundingClientRect().height || 1;
+  const pxY = (pct / 100) * boxHeight;
+  const maxPxY = (parseFloat(els.maxSlider.value) / 100) * boxHeight;
+  els.lineBase.style.top = `${pxY}px`;
+  els.maxVal.textContent = `${Math.round(pxY - maxPxY)}px`;
+  els.baseVal.textContent = `${Math.round(boxHeight - pxY)}px`;
+});
+
+els.lsSlider.addEventListener('input', e => {
+  els.lsVal.textContent = e.target.value + 'em';
+  updateTypographyStyles();
+});
+
+els.charsetInput.addEventListener('input', e => {
+  state.charset = e.target.value;
+  renderCharStrip();
+  renderGrid();
+  renderWaterfall();
+});
+
+els.testerArea.addEventListener('input', renderWaterfall);
+
+els.themeBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    const theme = btn.dataset.themeVal;
+    els.themeBtns.forEach(b => b.classList.toggle('active', b === btn));
+    if (theme === 'light') {
+      document.documentElement.removeAttribute('data-theme');
+    } else {
+      document.documentElement.setAttribute('data-theme', theme);
+    }
+  });
+});
+
+els.inspectorStage.addEventListener('wheel', e => {
+  e.preventDefault();
+  const current = parseInt(els.scaleSlider.value, 10);
+  const delta = Math.sign(e.deltaY) * -16;
+  const next = Math.max(48, Math.min(720, current + delta));
+  els.scaleSlider.value = next;
+  els.scaleVal.textContent = next + 'px';
+  els.glyphBox.style.fontSize = next + 'px';
+  measureAndAlignGlyph();
+}, { passive: false });
+
+els.inspectorStage.addEventListener('mousedown', e => {
+  state.isDragging = true;
+  state.dragStartX = e.clientX - state.panX;
+  state.dragStartY = e.clientY - state.panY;
+});
+
+window.addEventListener('mousemove', e => {
+  if (!state.isDragging) return;
+  state.panX = e.clientX - state.dragStartX;
+  state.panY = e.clientY - state.dragStartY;
+  applyStageTransform();
+});
+
+window.addEventListener('mouseup', () => {
+  state.isDragging = false;
+});
+
+els.inspectorStage.addEventListener('dblclick', () => {
+  state.panX = 0;
+  state.panY = 0;
+  applyStageTransform();
+});
+
+window.addEventListener('keydown', e => {
+  if (document.activeElement.tagName === 'INPUT' || document.activeElement.tagName === 'TEXTAREA') return;
+  const chars = Array.from(state.charset);
+  const idx = chars.indexOf(state.char);
+  if (e.key === 'ArrowRight' && idx !== -1) {
+    e.preventDefault();
+    setInspectChar(chars[(idx + 1) % chars.length]);
+  } else if (e.key === 'ArrowLeft' && idx !== -1) {
+    e.preventDefault();
+    setInspectChar(chars[(idx - 1 + chars.length) % chars.length]);
+  }
+});
+
+window.addEventListener('resize', measureAndAlignGlyph);
+
+if (document.fonts && document.fonts.ready) {
+  document.fonts.ready.then(measureAndAlignGlyph);
+}
+
+renderCharStrip();
+updateTypographyStyles();
+</script>
+</body>
+</html>
