@@ -1,0 +1,106 @@
+﻿c lita generated from template at 2026-10-24 09:00:00
+c with name "Lita"
+store(&VERSION) '10.0'
+store(&NAME) 'Lita'
+store(&COPYRIGHT) 'Copyright © Righteousness'
+store(&KEYBOARDVERSION) '1.0.0'
+store(&TARGETS) 'any'
+store(&BITMAP) 'lita.ico'
+store(&VISUALKEYBOARD) 'lita.kvks'
+store(&LAYOUTFILE) 'lita.keyman-touch-layout'
+
+begin Unicode > use(main)
+
+group(main) using keys
+
+c ─── VERBS: SECOND FORM (-OA) ───
+c Placed before standalone 'oa' so typing [verb] + 'oa' merges into the
+c uppercase Second Form key rather than outputting [verb] + 'W'.
+c Note: The first syllable has already transformed into its First Form key
+c followed by dk(done) when the user finishes typing 'o' + 'a'.
+
+'d' dk(done) 'o' + 'a' > 'D' dk(done)   c seoa -> D (se = d)
+'f' dk(done) 'o' + 'a' > 'F' dk(done)   c teoa -> F (te = f)
+'y' dk(done) 'o' + 'a' > 'Y' dk(done)   c baoa -> Y (ba = y)
+'o' dk(done) 'o' + 'a' > 'O' dk(done)   c naoa -> O (na = o)
+'p' dk(done) 'o' + 'a' > 'P' dk(done)   c taoa -> P (ta = p)
+'s' dk(done) 'o' + 'a' > 'S' dk(done)   c lioa -> S (li = s)
+'a' dk(done) 'o' + 'a' > 'A' dk(done)   c kioa -> A (ki = a)
+
+c ─── GRAMMAR & PARTICLES ───
+
+'j' + 'a' > 'Q' dk(done)   c ja -> Q (First Form Marker)
+'o' + 'a' > 'W' dk(done)   c oa -> W (Second Form Marker)
+'p' + 'a' > 'h' dk(done)   c pa -> h (Past Tense marker)
+'f' + 'u' > 'H' dk(done)   c fu -> H (Future Tense marker)
+'n' + 'o' > 'j' dk(done)   c no -> j (Negation particle)
+'k' + 'o' > 'J' dk(done)   c ko -> J (Interrogative particle)
+
+c ─── PRONOUNS & LIVING BEINGS ───
+
+'m' + 'i' > 'q' dk(done)   c mi -> q (I / Me / Myself)
+'y' + 'o' > 'w' dk(done)   c yo -> w (You / Yourself)
+'l' + 'u' > 'e' dk(done)   c lu -> e (They / Them / Plural Marker)
+'p' + 'e' > 'E' dk(done)   c pe -> E (Person / Human)
+'l' + 'i' > 's' dk(done)   c li -> s (Life / Living Being / Organism)
+
+c ─── CORE ELEMENTS & ENVIRONMENTS ───
+
+'l' + 'o' > 't' dk(done)   c lo -> t (Land / Earth / Ground / Location)
+'b' + 'a' > 'y' dk(done)   c ba -> y (Water / Liquid / Flow)
+'s' + 'a' > 'u' dk(done)   c sa -> u (Fire / Heat / Light / Energy)
+'d' + 'i' > 'U' dk(done)   c di -> U (Air / Sky / Weather / Gas)
+'k' + 'a' > 'r' dk(done)   c ka -> r (House / Room / Building / Container)
+'t' + 'u' > 'i' dk(done)   c tu -> i (Food / Nourishment)
+
+c ─── SYSTEMS, ABSTRACTS & LOGIC ───
+
+'n' + 'a' > 'o' dk(done)   c na -> o (Mind / Data / Information)
+'t' + 'a' > 'p' dk(done)   c ta -> p (Sound / Signal / Speech)
+'k' + 'i' > 'a' dk(done)   c ki -> a (Time / Moment / Clock)
+'s' + 'o' > 'R' dk(done)   c so -> R (Tool / Object / Physical Device)
+'p' + 'i' > 'l' dk(done)   c pi -> l (System / Network / Structure)
+'p' + 'o' > 'L' dk(done)   c po -> L (Law / Rule / Order / Authority)
+'p' + 'u' > 'z' dk(done)   c pu -> z (Value / Cost / Trade / Asset)
+'t' + 'i' > 'T' dk(done)   c ti -> T (Point / Focus / Target / Specificity / Identity)
+'t' + 'o' > 'n' dk(done)   c to -> n (Group / Set / Category / Type)
+'d' + 'a' > 'x' dk(done)   c da -> x (Change / Transformation / Shift)
+'d' + 'e' > 'c' dk(done)   c de -> c (Relation / Link / Connection / Network)
+'d' + 'u' > 'C' dk(done)   c du -> C (Cause / Region / Logic / Source)
+'g' + 'a' > 'v' dk(done)   c ga -> v (Part / Piece / Fraction / Component)
+'g' + 'e' > 'V' dk(done)   c ge -> V (Whole / Total / Universe / Completion)
+'g' + 'o' > 'b' dk(done)   c go -> b (Agreement / True / Positive State)
+'g' + 'u' > 'B' dk(done)   c gu -> B (Disagreement / False / Error State)
+'g' + 'i' > 'X' dk(done)   c gi -> X (Stochasticity / Entropy / Chaos)
+'k' + 'u' > 'm' dk(done)   c ku -> m (Void / Latency / Null-Space)
+'s' + 'u' > 'Z' dk(done)   c su -> Z (Equilibrium / Homeostatis)
+'n' + 'e' > 'N' dk(done)   c ne -> N (Recursion / Fractal / Feedback)
+'m' + 'o' > 'M' dk(done)   c mo -> M (Paradigm / Model / Simulation)
+
+c ─── VERBS: FIRST FORM ───
+
+'s' + 'e' > 'd' dk(done)   c se -> d (To be / Exist / Equal)
+'m' + 'u' > 'g' dk(done)   c mu -> g (To go / Move / Walk / Travel)
+'m' + 'a' > 'I' dk(done)   c ma -> I (To eat / Consume / Use up)
+'t' + 'e' > 'f' dk(done)   c te -> f (To take / Get / Receive)
+'d' + 'o' > 'G' dk(done)   c do -> G (To give / Transfer outward)
+
+c ─── MODIFIERS / DESCRIPTORS ───
+
+'b' + 'i' > 'k' dk(done)   c bi -> k (Augmentative / Big / Very / Much)
+'s' + 'i' > 'K' dk(done)   c si -> K (Diminutive / Small / Little / Few)
+
+c ─── NUMBERS ───
+c Maps number keys 0-9 directly to the keys of their corresponding Lita words.
+c (Typing the words 'ku', 'ti', 'de', etc. also outputs these exact keys.)
+
++ '0' > 'm' dk(done)       c 0 -> ku (m)
++ '1' > 'T' dk(done)       c 1 -> ti (T)
++ '2' > 'c' dk(done)       c 2 -> de (c)
++ '3' > 'v' dk(done)       c 3 -> ga (v)
++ '4' > 'r' dk(done)       c 4 -> ka (r)
++ '5' > 'q' dk(done)       c 5 -> mi (q)
++ '6' > 'l' dk(done)       c 6 -> pi (l)
++ '7' > 's' dk(done)       c 7 -> li (s)
++ '8' > 'n' dk(done)       c 8 -> to (n)
++ '9' > 'V' dk(done)       c 9 -> ge (V)
