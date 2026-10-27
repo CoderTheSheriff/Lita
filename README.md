@@ -83,11 +83,11 @@ Lita uses an original, native Fluid Logographic Cursive Script (FLCS) designed t
 | ma   | To eat / Consume / Use up    |
 | te   | To take / Get / Receive      |
 | do   | To give / Transfer outward   |
-| baoa | To drink                     |
-| naoa | To know / Think / Process    |
-| taoa | To speak / Say / Communicate |
-| lioa | To see / Look / Perceive     |
-| kioa | To make / Build / Create     |
+| bala | To drink                     |
+| nala | To know / Think / Process    |
+| tala | To speak / Say / Communicate |
+| lila | To see / Look / Perceive     |
+| kila | To make / Build / Create     |
 
 ### Modifiers and particles
 
@@ -107,8 +107,8 @@ Lita uses an original, native Fluid Logographic Cursive Script (FLCS) designed t
 | Word | Meaning                                             |
 | :--- | :------                                             |
 | se   | To be / Exist / Equal                               |
-| seoa | State / Condition / Quality / Property              |
-| teoa | Space / Area / Dimension / Scope                    |
+| sela | State / Condition / Quality / Property              |
+| tela | Space / Area / Dimension / Scope                    |
 | pi   | System / Network / Structure / 6                    |
 | po   | Law / Rule / Order / Authority                      |
 | pu   | Value / Cost / Trade / Asset                        |
