@@ -170,7 +170,7 @@ A time particle must be placed directly before the word it modifies to change it
 
 <figure>
   <img src="assets/graph.png" alt="description">
-  <figcaption align="center"><i>AI-generated image, but you get the idea</i></figcaption>
+  <figcaption align="center"><i>Illustration showing the time particle</i></figcaption>
 </figure>
 
 ### 3.4 Negations & Questions
