@@ -11,6 +11,14 @@
 
 </div>
 
+# Why I built this
+
+I am primarily a programmer and a [Wikipedian](https://en.wikipedia.org/wiki/User:RightYiZheng) (therefore the AI-sounding tone, which is a habit of mine). I always liked the idea of making a conlang. The initial start of this conlang began when I tried to make the easiest conlang, I started to learn about conlang making first, like what to consider when making a conlang.
+
+Then, after gathering enough knowledge, I began to make a conlang. And then this was created. I think it is easy, and I am fluent in it myself. Though, there are some hard things in this language, like when to use the first and second form marker when pronouncing (not needed in writing).
+
+I considered the problems of a [**oligosynthetic language**](https://en.wikipedia.org/wiki/Synthetic_language#Oligosynthetic), and I don't know how can I solve the problems. Ultimately, if you find any problems, or want to improve the font or vocabulary, please consider contributing, I'd like it!
+
 # Overview
 
 Lita is a language designed to be comfortable to speak and fluid to write. Its overall structure is intuitive and built for real-world use, featuring a simplified grammar that allows for quick learning.
